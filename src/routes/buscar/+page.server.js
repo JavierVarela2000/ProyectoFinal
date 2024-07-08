@@ -1,1 +1,7 @@
-/** @type {import('./$types').Actions} */export const actions = {	default: async (event) => {		// TODO log the user in	}};
+/** @type {import('./$types').Actions} */
+export const actions = {
+	shodan: async (event) => {
+		const util = require("util");
+		const client = require("shodan-client");
+	},
+};
