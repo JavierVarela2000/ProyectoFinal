@@ -2,6 +2,6 @@
 </script>
 
 <form method="post" action="?/shodan">
-	<input type="text" />
+	<input name="query" type="text" />
 	<button type="submit">Buscar</button>
 </form>
