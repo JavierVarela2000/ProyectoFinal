@@ -11,5 +11,31 @@ const getOrganizations = async () => {
 	let data = await supabase.from("organization").select("*");
 	return data;
 };
+const insetOrganization = async (org) => {
+	const { data, error } = await supabase
+		.from("organization")
+		.insert([org])
+		.select();
+	if (!error) return true;
+	return false;
+};
 
-export { getOrganizations };
+const deleteOrganization = async (id) => {
+	const { error } = await supabase.from("organization").delete().eq("id", id);
+	if (!error) return true;
+	return false;
+};
+
+const getOrganization = async (id) => {
+	let { data: organization, error } = await supabase
+		.from("organization")
+		.select("*")
+		.eq("id", id);
+	return organization[0];
+};
+export {
+	getOrganizations,
+	insetOrganization,
+	deleteOrganization,
+	getOrganization,
+};

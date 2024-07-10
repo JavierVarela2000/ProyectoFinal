@@ -1,12 +1,19 @@
 <script>
+	import { insetOrganization } from "$lib/supabase.js";
 	import handleExcelFile from "$lib/handleExcelFile";
 	import categorizeData from "$lib/categorizeData";
-	export let organizaciones = [];
+	export let closeModal;
+
 	const handleSubmimt = async (event) => {
 		const titulo = event.target[0].value;
 		const excel = event.target[1].files[0];
 		const excelData = await handleExcelFile(excel);
-		if (excelData) categorizeData(excelData);
+		if (!excelData) return;
+		let categorizedData = await categorizeData(excelData);
+		const org = { name: titulo, items: categorizedData };
+		insetOrganization(org);
+		closeModal();
+		window.location.reload();
 	};
 </script>
 

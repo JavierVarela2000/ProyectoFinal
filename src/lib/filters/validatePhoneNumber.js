@@ -1,10 +1,11 @@
-const validatePhoneNumber = (phoneNumber) => {
-	// Expresión regular para validar número de teléfono (formato E.164)
-	// Permite números que empiecen con '+' seguido de uno o más dígitos
-	const phoneRegex = /^\+?[1-9]\d{1,14}$/;
+const validatePhoneNumber = (request) => {
+	const phoneNumber = String(request).trim();
+	// Verificar que la cadena comience con '+'
+	if (phoneNumber.charAt(0) !== "+") {
+		return false;
+	}
 
-	// Validar el número de teléfono
-	return phoneRegex.test(Number(phoneNumber));
+	return true;
 };
 
 export default validatePhoneNumber;
