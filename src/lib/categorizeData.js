@@ -16,7 +16,7 @@ const categorizeData = (data) => {
 				targetSource: domain,
 				type: "IpAddress",
 				category: "Operations", //Operaciones
-				valoration: 2,
+				valoration: 3,
 			});
 		} else if (isEmail(item)) {
 			items.push({
@@ -24,7 +24,7 @@ const categorizeData = (data) => {
 				targetSource: domain,
 				type: "Email",
 				category: "Security", //seguridad
-				valoration: 2,
+				valoration: 1,
 			});
 		} else if (validatePhoneNumber(item)) {
 			items.push({
@@ -48,7 +48,7 @@ const categorizeData = (data) => {
 				targetSource: domain,
 				type: "Domain",
 				category: "Operations", //Operaciones
-				valoration: 2,
+				valoration: 1,
 			});
 		} else {
 			items.push({

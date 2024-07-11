@@ -1,4 +1,5 @@
 <script>
+	import { page } from "$app/stores";
 	import TecnologiesCard from "$lib/components/TecnologiesCard.svelte";
 	export let data;
 	import { loadingStore } from "$lib/stores";
@@ -14,8 +15,16 @@
 	});
 </script>
 
+<!-- svelte-ignore a11y-missing-attribute -->
 <div class="container">
-	<a href="/" class="btn btn-primary mt-3">
+	<!-- svelte-ignore a11y-click-events-have-key-events -->
+	<!-- svelte-ignore a11y-no-static-element-interactions -->
+	<a
+		on:click={() => {
+			window.history.back();
+		}}
+		class="btn btn-primary mt-3"
+	>
 		<i class="bi bi-chevron-left"></i> Return
 	</a>
 	<div class=" d-flex align-items-start justify-content-center mt-5 gap-2">
